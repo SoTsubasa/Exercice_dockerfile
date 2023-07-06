@@ -1,0 +1,22 @@
+# Vielle version (plus obligatoire)
+version: '3'
+
+# Lise des conteneurs
+services: 
+  # Mon premier service
+  madatabase:
+    # Lister les attributs de ce conteneur
+    image: mysql
+    restart: always
+    # rajout de volumes
+    ports:
+      - 8081:8081
+    networks:
+      - demoVNet
+    # variable d'environnement
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+
